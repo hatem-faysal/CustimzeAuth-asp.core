@@ -1,0 +1,67 @@
+﻿@model User
+<!doctype html>
+<html>
+<head>
+    <title>login</title>
+
+</head>
+
+<body class="bg-login">
+    <!--wrapper-->
+    <div class="wrapper">
+        <div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
+            <div class="container-fluid">
+                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+                    <div class="col mx-auto">
+                    <h2>Login</h2>
+			<div class="wrap-login100">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="border p-4 rounded">
+                       
+                                    <div class="form-body">
+                                        <form class="row g-3" asp-controller="Account" asp-action="Login" >
+                           					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            <div class="col-12">
+                                                <label for="inputEmailAddress" class="form-label" asp-for="Name" ></label>
+                                                <input type="text"  asp-for="Name" autocomplete="off"  class="form-control" id="inputEmailAddress" placeholder="Name">
+                                            </div>
+                                                <br/>
+                                                <br/>
+                                                <span class="text-danger" asp-validation-for="Name"></span>
+                                            <div class="col-12">
+                                                <label for="inputChoosePassword" asp-for="Password" class="form-label"></label>
+                                                <div class="input-group" id="show_hide_password">
+                                                    <input type="password" class="form-control border-end-0"
+                                                    asp-for="Password" autocomplete="off"
+                                                        id="inputChoosePassword" 
+                                                        placeholder="Enter Password">
+                                                </div>
+                                            </div>
+                                                <br/>
+                                                <br/>                                                        
+														<span class="text-danger" asp-validation-for="Password"></span>
+                                            <div class="col-12">
+                                                <div class="d-grid">
+                                                    <button type="submit" class="btn btn-primary"><i
+                                                            class="bx bxs-lock-open"></i>Sign in</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end row-->
+            </div>
+        </div>
+    </div>
+
+    @section Scripts{
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+
+</html>
